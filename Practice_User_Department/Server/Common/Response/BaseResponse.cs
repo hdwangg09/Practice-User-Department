@@ -8,7 +8,9 @@ namespace Server.Common
 {
     public class BaseResponse<T>
     {
-        
+        [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonProperty(Order = 5)]
+        public Paging? Paging { get; set; }
 
         [JsonProperty(Order = 1)]
         public HttpStatusCode? Code { get; set; }
@@ -23,8 +25,6 @@ namespace Server.Common
         [JsonProperty(Order = 4)]
         public T? Data { get; set; }
 
-        [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonProperty(Order = 5)]
-        public Paging? Paging { get; set; }
+  
     }
 }

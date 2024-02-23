@@ -87,3 +87,4 @@ C:\Users\hdwan\OneDrive\Desktop\PRN231\Coding\Class\Practice-User-Department\Pra
 C:\Users\hdwan\OneDrive\Desktop\PRN231\Coding\Class\Practice-User-Department\Practice_User_Department\Server\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\hdwan\OneDrive\Desktop\PRN231\Coding\Class\Practice-User-Department\Practice_User_Department\Server\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\hdwan\OneDrive\Desktop\PRN231\Coding\Class\Practice-User-Department\Practice_User_Department\Server\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\hdwan\OneDrive\Desktop\PRN231\Coding\Class\Practice-User-Department\Practice_User_Department\Server\obj\Debug\net6.0\Server.sourcelink.json

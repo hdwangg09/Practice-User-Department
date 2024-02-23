@@ -1,0 +1,70 @@
+﻿@using Newtonsoft.Json.Linq
+@{
+    ViewData["Title"] = "User List";
+    // var listDepartment = ((JObject)ViewData["listDepartment"])["data"] as JArray;
+
+    // var listDepartment = ViewData["listDepartmentData"] as JArray;
+    // var listUser = ViewData["listUserData"] as JArray;
+
+    var listDepartment = ViewData["listDepartmentData"] as IEnumerable<dynamic>;
+    var listUser = ViewData["listUserData"] as IEnumerable<dynamic>;
+}
+<div class="row">
+    <div class="col-md-4">
+        <form id="fillterForm" action="/user" method="get" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="userName">Username:</label>
+                <input type="text" id="userName" name="userName">
+                <div id="userNameError" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="departmentId">Select a Departmnet:</label>
+                <select style="width: 200px; id="id" name="departmentId">
+                    <option value="-1">-------All----------</option>
+                    @foreach (var item in listDepartment)
+                    {
+                        @* <option value="@item["id"]">@item["name"]</option> *@
+                        <option value="@item?.id">@item?.name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Filter" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<h1>User List</h1>
+
+@if (listUser.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Dob</th>
+                <th>Gender</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in listUser)
+            {
+                <tr>
+                    <td>@item?.id</td>
+                    <td>@item?.username</td>
+                    <td>
+                        @DateTime.Parse(item?.dob.ToString()).ToString("dd/MM/yyyy")
+                    </td>
+                    <td>@(item?.gender == 0 ? "Male" : "Female")</td>
+                    <td>@item?.userDepartment</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No dummy details found.</p>
+}
